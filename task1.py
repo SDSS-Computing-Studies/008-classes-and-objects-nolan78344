@@ -26,39 +26,48 @@ class student:
     name = ""
     studentnumber = ""
     gradelevel = 0
-    courses = {}
-    grades = {}
+    courses = []
+    grades = []
     # properties should be listed first
 
-    def __init__(self, name, studentnumber, gradelevel): # You will need to create your own input parameters for all methods
+    def __init__(self, name, studentnumber, gradelevel, grades = [], courses = []): # You will need to create your own input parameters for all methods
         self.name = name
         self.studentnumber = studentnumber
         self.gradelevel = gradelevel
         self.grades = grades
         self.courses = courses
-        pass
 
 
     def __del__(self):
         pass
 
     def average(self, grades):
-            Sum = sum(grades)
-            x = Sum/len
+            Sum = sum(self.grades)
+            x = Sum/len(self.grades)
             print(x)
 
-    def getHonorRoll(self, grades):
-            sum(i > 86 for i in grades)
+    def getHonorRoll(self):
+        a = self.grades
+
+        a.sort()
+        honornumber = a[-1] + a[-2] + a[-3] + a[-4] + a[-5]
+        honornumber = honornumber / 5
+        honornumber = int(honornumber)
+        if honornumber >= 86:
+            return True
+
+        else: 
+            return False
     def getGrades(self, grades):
-        getGrades = (grades)
+        grades = self.grades
+        return
     def getCourses(self, courses):
-        getCourses = (courses)
+        courses = self.courses
+        return 
     def showCourses(self,grades):
-        print(str(i) + '\n')
+        print(self.courses)
     def showGrades(self, courses):
-        print(str(i) + '\n')
-
-
+        print(self.grades)
 def main():
     # This contains test data that will be used by the autograder.
     # do not modify this function
