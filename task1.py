@@ -55,7 +55,6 @@ class student:
         honornumber = int(honornumber)
         if honornumber >= 86:
             return True
-
         else: 
             return False
     def getGrades(self, grades):
@@ -68,6 +67,9 @@ class student:
         print(self.courses)
     def showGrades(self, courses):
         print(self.grades)
+
+    def __del__(self):
+        print("Bye")
 def main():
     # This contains test data that will be used by the autograder.
     # do not modify this function
