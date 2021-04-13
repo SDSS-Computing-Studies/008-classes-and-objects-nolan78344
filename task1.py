@@ -38,35 +38,39 @@ class student:
         self.courses = courses
 
 
-    def __del__(self):
-        pass
-
-    def average(self, grades):
+    def average(self):
             Sum = sum(self.grades)
             x = Sum/len(self.grades)
-            print(x)
+            return x
 
     def getHonorRoll(self):
-        a = self.grades
-
-        a.sort()
-        honornumber = a[-1] + a[-2] + a[-3] + a[-4] + a[-5]
-        honornumber = honornumber / 5
-        honornumber = int(honornumber)
-        if honornumber >= 86:
-            return True
+        self.grades.sort()
+        honorroll = (self.grades[-1] + self.grades[-2] + self.grades[-3] + self.grades[-4] + self.grades[-5])/5
+        if honorroll >= 86:
+            honor = True
+            print("This student is on the honor roll")
         else: 
-            return False
+            honor = False
+        return honor
+
     def getGrades(self, grades):
-        grades = self.grades
-        return
+        self.grades = grades
+        return self.grades
+
     def getCourses(self, courses):
-        courses = self.courses
-        return 
+        self.courses = courses
+        return self.courses
+
     def showCourses(self,grades):
         print(self.courses)
-    def showGrades(self, courses):
-        print(self.grades)
+
+    def showGrades(self,index):
+        print(self.courses[index])
+        print(self.grades[index])
+        
+    def index(self):
+        index = input("Enter the index: ")
+        return int(index)
 
     def __del__(self):
         print("Bye")
